@@ -35,7 +35,7 @@ class Adict():
 		except TimeoutException:
 			self.driver.close()
 			time.sleep(1)
-			self.driver = webdriver.Chrome(options=options, executable_path=r"C:\\chromedriver_win32\\chromedriver.exe")
+			self.driver = uc.Chrome(options=options, service=Service(ChromeDriverManager().install()))
 			self.driver.get(URL)
 		except WebDriverException as e:
 			if "version" in e:
